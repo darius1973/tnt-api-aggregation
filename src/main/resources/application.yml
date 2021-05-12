@@ -1,0 +1,7 @@
+server:
+  port : 8081
+web-service-config:
+  host : "http://localhost:8080"
+  shipments-api : "/shipments?q="
+  pricing-api : "/pricing?q="
+  track-api : "/track?q="
