@@ -26,12 +26,13 @@ public class Controller {
 
     @GetMapping("/aggregation")
     @ResponseBody
-    public Flux<ApiResponse> getAggregatedDataFor(@RequestParam("pricing") @ValidCountryCode List<String> countries,
+    public Mono<ApiResponse> getAggregatedDataFor(@RequestParam("pricing") @ValidCountryCode List<String> countries,
                                                   @RequestParam("track") @ValidShipmentTrackNumber List<Integer> trackNumbers,
                                                   @RequestParam("shipments") @ValidShipmentTrackNumber List<Integer> shipmentNumbers) {
 
         return aggregationService.getDataFor(countries,
                 trackNumbers,
-                shipmentNumbers);
+                shipmentNumbers).next();
+
     }
 }
