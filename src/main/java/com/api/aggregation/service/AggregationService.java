@@ -52,7 +52,7 @@ public class AggregationService {
     private Flux<Map> fluxCallWebServicePricing(List<String> countries, String url) {
         return Flux.just(countries)
                 .take(webServiceConfigProperties.getLimitRequestsParameter())
-                .sample(Duration.ofSeconds(5))
+                .sample(Duration.ofMillis(webServiceConfigProperties.getDurationMs()))
                 .flatMap(country -> serviceWebClient.get()
                         .uri(url)
                         .accept(MediaType.APPLICATION_JSON)
@@ -67,7 +67,7 @@ public class AggregationService {
 
     private Flux<Map> fluxCallWebServiceShipTrack(List<Integer> shipTrackNumbers, String url) {
         return Flux.just(shipTrackNumbers)
-                .sample(Duration.ofSeconds(5))
+                .sample(Duration.ofMillis(webServiceConfigProperties.getDurationMs()))
                 .take(webServiceConfigProperties.getLimitRequestsParameter())
                 .flatMap(list -> serviceWebClient.get()
                         .uri(url)

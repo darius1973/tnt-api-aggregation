@@ -83,6 +83,7 @@ public class AggregationServiceTest {
         properties.setTrackApi("/track?q=");
         properties.setShipmentsApi("/shipments?q=");
         properties.setLimitRequestsParameter(5L);
+        properties.setDurationMs(5L);
 
         return properties;
     }
