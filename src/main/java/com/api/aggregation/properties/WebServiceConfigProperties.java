@@ -15,4 +15,6 @@ public class WebServiceConfigProperties {
     private String shipmentsApi;
     private String pricingApi;
     private String trackApi;
+    private Long limitRequestsParameter;
+    private Long durationMs;
 }

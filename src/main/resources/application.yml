@@ -5,3 +5,5 @@ web-service-config:
   shipments-api : "/shipments?q="
   pricing-api : "/pricing?q="
   track-api : "/track?q="
+  limit-requests-parameter : 5
+  duration-ms : 5000

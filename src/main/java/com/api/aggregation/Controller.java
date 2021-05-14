@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class Controller {
 
     @GetMapping("/aggregation")
     @ResponseBody
-    public Mono<ApiResponse> getAggregatedDataFor(@RequestParam("pricing") @ValidCountryCode List<String> countries,
+    public Flux<ApiResponse> getAggregatedDataFor(@RequestParam("pricing") @ValidCountryCode List<String> countries,
                                                   @RequestParam("track") @ValidShipmentTrackNumber List<Integer> trackNumbers,
                                                   @RequestParam("shipments") @ValidShipmentTrackNumber List<Integer> shipmentNumbers) {
 

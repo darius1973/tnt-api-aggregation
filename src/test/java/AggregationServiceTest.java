@@ -66,6 +66,7 @@ public class AggregationServiceTest {
                 .assertNext(apiResponse->assertValues(apiResponse));
     }
 
+
     private void assertValues(ApiResponse apiResponse) {
         assertThat(apiResponse.getPricing().get("NL")).isEqualTo(14.242090605778);
         assertThat(apiResponse.getPricing().get("CN")).isEqualTo(20.503467806384);
@@ -81,7 +82,10 @@ public class AggregationServiceTest {
         properties.setPricingApi("/pricing?q=");
         properties.setTrackApi("/track?q=");
         properties.setShipmentsApi("/shipments?q=");
+        properties.setLimitRequestsParameter(5L);
 
         return properties;
     }
+
+
 }
